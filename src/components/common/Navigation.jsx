@@ -11,6 +11,7 @@ const navItems = [
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const { scrollY } = useScroll()
   const background = useTransform(
     scrollY,
@@ -25,6 +26,9 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const toggleMenu = () => setIsOpen(!isOpen)
+  const closeMenu = () => setIsOpen(false)
 
   return (
     <motion.nav
@@ -41,8 +45,34 @@ const Navigation = () => {
         >
           KR
         </motion.a>
+
+        {/* Hamburger Menu Button */}
+        <button
+          type="button"
+          onClick={toggleMenu}
+          className="md:hidden p-2 text-gray-600 hover:text-primary transition-colors"
+          aria-label="Toggle Menu"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <title>Menu Toggle</title>
+            {isOpen ? (
+              <path d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
         
-        <ul className="flex gap-8">
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex gap-8">
           {navItems.map(({ name, href }) => (
             <motion.li key={name} whileHover={{ y: -2 }}>
               <a
@@ -55,6 +85,34 @@ const Navigation = () => {
           ))}
         </ul>
       </div>
+
+      {/* Mobile Menu */}
+      <motion.div
+        initial={false}
+        animate={{
+          height: isOpen ? 'auto' : 0,
+          opacity: isOpen ? 1 : 0
+        }}
+        className="md:hidden overflow-hidden bg-white dark:bg-gray-800"
+      >
+        <ul className="px-4 py-2">
+          {navItems.map(({ name, href }) => (
+            <motion.li
+              key={name}
+              whileHover={{ x: 4 }}
+              className="py-2"
+            >
+              <a
+                href={href}
+                onClick={closeMenu}
+                className="block text-gray-600 dark:text-gray-200 hover:text-primary dark:hover:text-primary-dark transition-colors"
+              >
+                {name}
+              </a>
+            </motion.li>
+          ))}
+        </ul>
+      </motion.div>
     </motion.nav>
   )
 }

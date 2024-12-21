@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --primary: #FFD1DC;    /* Pastel Pink */
-  --secondary: #B5EAD7;  /* Mint Green */
-  --accent1: #C7CEEA;    /* Soft Blue */
-  --accent2: #FFDAC1;    /* Peach */
-  --text: #6B7280;
+  --primary: #ffd1dc; /* Pastel Pink */
+  --secondary: #b5ead7; /* Mint Green */
+  --accent1: #c7ceea; /* Soft Blue */
+  --accent2: #ffdac1; /* Peach */
+  --text: #6b7280;
 }
 
 body {
@@ -20,8 +20,11 @@ body {
 /* Pastel pattern overlay */
 .pattern-overlay {
   @apply absolute inset-0 opacity-5 pointer-events-none;
-  background-image: 
-    radial-gradient(circle at 25px 25px, var(--accent2) 2%, transparent 0%),
+  background-image: radial-gradient(
+      circle at 25px 25px,
+      var(--accent2) 2%,
+      transparent 0%
+    ),
     radial-gradient(circle at 75px 75px, var(--primary) 2%, transparent 0%);
   background-size: 100px 100px;
 }
@@ -47,26 +50,24 @@ body {
   @apply relative bg-gradient-to-b from-primary/10 via-accent1/5 to-secondary/10;
 }
 
-.custom-cursor {
-  @apply fixed w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference;
-  background: var(--primary);
-  transition: all 150ms ease;
-  transition-property: width, height, transform;
-}
-
 @layer components {
   .section-container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
   .hover-effect {
     @apply transition-all duration-300 ease-in-out;
   }
-} 
+}
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .profile-float {
@@ -75,4 +76,10 @@ body {
 
 .profile-glow {
   filter: drop-shadow(0 0 10px var(--primary));
+}
+
+@layer base {
+  body {
+    @apply bg-background dark:bg-background-dark text-textColor dark:text-textColor-dark;
+  }
 }

@@ -4,14 +4,34 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        primary: '#FFD1DC',    // Pastel Pink
-        secondary: '#B5EAD7',  // Mint Green
-        accent1: '#C7CEEA',    // Soft Blue
-        accent2: '#FFDAC1',    // Peach
-        textColor: '#6B7280',  // Soft Gray
+        primary: {
+          DEFAULT: '#2563eb',
+          dark: '#1d4ed8'
+        },
+        secondary: {
+          DEFAULT: '#7c3aed',
+          dark: '#6d28d9'
+        },
+        accent1: {
+          DEFAULT: '#f59e0b',
+          dark: '#d97706'
+        },
+        accent2: {
+          DEFAULT: '#10b981',
+          dark: '#059669'
+        },
+        background: {
+          DEFAULT: '#ffffff',
+          dark: '#111827'
+        },
+        textColor: {
+          DEFAULT: '#1f2937',
+          dark: '#f3f4f6'
+        }
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

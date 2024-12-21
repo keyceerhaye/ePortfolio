@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import profilePic from '@assets/images/profile.jpg'
+import profilePic from '@assets/images/profilePic.jpg'
+import { useTheme } from '@context/ThemeContext'
 
 const Hero = () => {
+  const { isDark, toggleTheme } = useTheme()
   const heroRef = useRef(null)
   const textRef = useRef(null)
 
@@ -22,9 +24,21 @@ const Hero = () => {
   }, [])
 
   return (
-    <section ref={heroRef} className="hero-bg min-h-screen flex items-center justify-center">
+    <section ref={heroRef} className="hero-bg min-h-screen flex items-center justify-center dark:bg-background-dark transition-colors duration-0">
       <div className="pattern-overlay" />
       <div className="text-center space-y-8 relative">
+        {/* Theme Toggle Button */}
+        <motion.button
+          onClick={toggleTheme}
+          className="absolute top-4 right-4 p-4 w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-0 flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-600"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span className="text-xl">
+            {isDark ? '🌞' : '🌙'}
+          </span>
+        </motion.button>
+
         {/* Profile Picture Container */}
         <motion.div
           className="relative mx-auto mb-8"
@@ -55,24 +69,24 @@ const Hero = () => {
           <motion.div
             className="absolute -right-4 -top-4 w-8 h-8 bg-accent2 rounded-full"
             animate={{ y: [-5, 5] }}
-            transition={{ repeat: Infinity, repeatType: "reverse", duration: 2 }}
+            transition={{ repeat: Number.POSITIVE_INFINITY, repeatType: "reverse", duration: 2 }}
           />
           <motion.div
             className="absolute -left-4 -bottom-4 w-6 h-6 bg-primary rounded-full"
             animate={{ y: [5, -5] }}
-            transition={{ repeat: Infinity, repeatType: "reverse", duration: 2.5 }}
+            transition={{ repeat: Number.POSITIVE_INFINITY, repeatType: "reverse", duration: 2.5 }}
           />
         </motion.div>
 
         <div ref={textRef}>
           <motion.h1 
-            className="text-6xl md:text-8xl font-display font-bold text-primary"
+            className="text-6xl md:text-8xl font-display font-bold text-primary dark:text-white"
             whileHover={{ scale: 1.05 }}
           >
             Hello! I'm Keycee
           </motion.h1>
           <motion.p 
-            className="text-2xl md:text-3xl font-light text-textColor mt-4"
+            className="text-2xl md:text-3xl font-light text-gray-700 dark:text-gray-200 mt-4"
             whileHover={{ y: -5 }}
           >
             UI/UX Designer & Developer
@@ -85,13 +99,13 @@ const Hero = () => {
           >
             <button 
               type="button"
-              className="px-6 py-3 bg-primary rounded-full text-white hover:shadow-lg transition-all"
+              className="px-6 py-3 bg-primary dark:bg-white text-white dark:text-gray-900 rounded-full hover:shadow-lg transition-all"
             >
               View Projects
             </button>
             <button 
               type="button"
-              className="px-6 py-3 border-2 border-primary rounded-full text-primary hover:bg-primary hover:text-white transition-all"
+              className="px-6 py-3 border-2 border-primary dark:border-white text-primary dark:text-white rounded-full hover:bg-primary dark:hover:bg-white hover:text-white dark:hover:text-gray-900 transition-all"
             >
               Contact Me
             </button>
