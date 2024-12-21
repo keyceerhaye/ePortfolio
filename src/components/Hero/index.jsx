@@ -80,13 +80,15 @@ const Hero = () => {
 
         <div ref={textRef}>
           <motion.h1 
-            className="text-6xl md:text-8xl font-display font-bold text-primary dark:text-white"
+            onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
+            className="text-6xl md:text-8xl font-display font-bold text-primary dark:text-white cursor-pointer"
             whileHover={{ scale: 1.05 }}
           >
             Hello! I'm Keycee
           </motion.h1>
           <motion.p 
-            className="text-2xl md:text-3xl font-light text-gray-700 dark:text-gray-200 mt-4"
+            onClick={() => document.getElementById('process').scrollIntoView({ behavior: 'smooth' })}
+            className="text-2xl md:text-3xl font-light text-gray-700 dark:text-gray-200 mt-4 cursor-pointer hover:text-primary dark:hover:text-primary-dark transition-colors"
             whileHover={{ y: -5 }}
           >
             UI/UX Designer & Developer
@@ -99,13 +101,15 @@ const Hero = () => {
           >
             <button 
               type="button"
-              className="px-6 py-3 bg-primary dark:bg-white text-white dark:text-gray-900 rounded-full hover:shadow-lg transition-all"
+              onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
+              className="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-full hover:shadow-lg transition-all"
             >
               View Projects
             </button>
             <button 
               type="button"
-              className="px-6 py-3 border-2 border-primary dark:border-white text-primary dark:text-white rounded-full hover:bg-primary dark:hover:bg-white hover:text-white dark:hover:text-gray-900 transition-all"
+              onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+              className="px-6 py-3 border-2 border-primary hover:border-primary/90 text-primary dark:text-white rounded-full hover:bg-primary hover:text-white transition-all"
             >
               Contact Me
             </button>

@@ -5,7 +5,7 @@ import { useRef } from 'react'
 const skills = [
   "UI Design", "UX Research", "Prototyping"
   , "Frontend Dev", "Figma",
-  "React", "TailwindCSS", "JavaScript" , "Git" , "GitHub"
+  "React", "TailwindCSS", "JavaScript" , "Git" , "GitHub" , "Python"
 ]
 
 const About = () => {

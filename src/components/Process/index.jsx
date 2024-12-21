@@ -70,7 +70,7 @@ const Process = () => {
             Design Tools I Use
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
-            {['Figma', 'Adobe XD', 'Sketch', 'InVision', 'Principle'].map((tool) => (
+            {['Figma', 'Canva', 'Sketch', 'Adobe Photoshop'].map((tool) => (
               <span
                 key={tool}
                 className="px-4 py-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-full shadow-sm hover:shadow-md transition-all"

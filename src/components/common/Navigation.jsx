@@ -18,6 +18,11 @@ const Navigation = () => {
     [0, 50],
     ['rgba(255, 255, 255, 0.5)', 'rgba(255, 255, 255, 0.95)']
   )
+  const darkBackground = useTransform(
+    scrollY,
+    [0, 50],
+    ['rgba(17, 24, 39, 0.5)', 'rgba(17, 24, 39, 0.95)']
+  )
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,9 +37,9 @@ const Navigation = () => {
 
   return (
     <motion.nav
-      style={{ background }}
-      className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-sm transition-all ${
-        isScrolled ? 'shadow-sm' : ''
+      style={{ background: isScrolled ? background : 'transparent' }}
+      className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-sm transition-all dark:text-white ${
+        isScrolled ? 'shadow-sm dark:shadow-gray-800' : ''
       }`}
     >
       <div className="max-w-6xl mx-auto flex justify-between items-center">
@@ -50,7 +55,7 @@ const Navigation = () => {
         <button
           type="button"
           onClick={toggleMenu}
-          className="md:hidden p-2 text-gray-600 hover:text-primary transition-colors"
+          className="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
           aria-label="Toggle Menu"
         >
           <svg
@@ -77,7 +82,7 @@ const Navigation = () => {
             <motion.li key={name} whileHover={{ y: -2 }}>
               <a
                 href={href}
-                className="text-gray-600 hover:text-primary transition-colors"
+                className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
               >
                 {name}
               </a>
@@ -93,7 +98,7 @@ const Navigation = () => {
           height: isOpen ? 'auto' : 0,
           opacity: isOpen ? 1 : 0
         }}
-        className="md:hidden overflow-hidden bg-white dark:bg-gray-800"
+        className="md:hidden overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm"
       >
         <ul className="px-4 py-2">
           {navItems.map(({ name, href }) => (
@@ -105,7 +110,7 @@ const Navigation = () => {
               <a
                 href={href}
                 onClick={closeMenu}
-                className="block text-gray-600 dark:text-gray-200 hover:text-primary dark:hover:text-primary-dark transition-colors"
+                className="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
               >
                 {name}
               </a>
