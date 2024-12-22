@@ -69,10 +69,8 @@ This cutesy and demure eportfolio is built with React, TailwindCSS, Framer Motio
 
 ## 💡 Interactive Features
 
-- Custom cursor that reacts to different elements
 - Parallax scrolling effects
 - Floating elements that react to mouse movement
 - Interactive skill bubbles
 - Project cards with 3D hover effects
 - Animated progress indicators
-- Easter eggs throughout the site
