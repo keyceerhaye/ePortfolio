@@ -1,5 +1,3 @@
-# Keycee Rhaye's Portfolio
-
 Welcome to my portfolio repository! This is a cutesy and demure ePortfolio showcasing my work and skills as a UI/UX designer and developer.
 
 ## 📝 Description
@@ -32,15 +30,19 @@ This portfolio is a single-page application that demonstrates my design philosop
 
 ### Installation
 1. Clone the repository
+   
 git clone https://github.com/keycee-rhaye/ePortfolio.git
 
-2. Install dependencies
+3. Install dependencies
+   
 npm install
 
-3. Start the development server
+5. Start the development server
+   
 npm run dev 
 
-4. Build for production
+7. Build for production
+   
 npm run build
 
 ## 🤝 Contributing
