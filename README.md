@@ -30,7 +30,7 @@ This portfolio is a single-page application that demonstrates my design philosop
 
 ### Installation
 1. Clone the repository
-git clone https://github.com/keycee-rhaye/ePortfolio.git
+git clone https://github.com/keyceerhaye/keyceerhaye.github.io.git
 
 2. Install dependencies
 npm install
